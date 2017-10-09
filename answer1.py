@@ -1,3 +1,12 @@
+import sys
+import json
+
+assert len(sys.argv) == 4, "Usage: python answer1.py [n] [arr1] [arr2]"
+assert len(sys.argv[1]) >=1, "n must be 1 or larger"
+assert len(sys.argv[1]) <= 16, "n must be 16 or smaller"
+
+arr1 = json.loads(sys.argv[2])
+arr2 = json.loads(sys.argv[3])
 
 def dec_to_bin(x):
 	if x == 1:
@@ -11,15 +20,15 @@ def adjust_length(n, arr):
 	else:
 		return adjust_length(n, [0]+arr)
 
-
-
-
 def answer1(n, arr1, arr2):
 	bin_arr1 = []
 	bin_arr2 = []
 
 	def helper(n, arr, bin_arr):
 		for x in arr:
+			x = int(x)
+			assert x >= 0, "eveny element in arrays must be 0 or larger"
+			assert x <= 2 ** n - 1, "eveny element in arrays must be 2 ** n - 1 or smaller"
 			a = dec_to_bin(x)
 			a = adjust_length(n, a)
 			bin_arr.append(a)
@@ -40,6 +49,7 @@ def answer1(n, arr1, arr2):
 
 	return answer
 
+print(answer1(int(sys.argv[1]), arr1, arr2))
 
 
 
