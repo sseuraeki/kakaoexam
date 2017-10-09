@@ -9,12 +9,14 @@ arr1 = json.loads(sys.argv[2])
 arr2 = json.loads(sys.argv[3])
 
 def dec_to_bin(x):
+	# decimal to binary recursive function
 	if x == 1:
 		return [1]
 	else:
 		return dec_to_bin(x//2) + [x % 2]
 
 def adjust_length(n, arr):
+	# binary array to n length by adding 0 in front
 	if len(arr) == n:
 		return arr
 	else:
