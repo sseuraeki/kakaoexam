@@ -1,17 +1,24 @@
 import sys
-import json
 
-assert len(sys.argv) == 4, "Usage: python answer1.py [n] [arr1] [arr2]"
+assert len(sys.argv) >= 4, "Usage: python answer1.py [n] [arr1] [arr2]"
 assert len(sys.argv[1]) >=1, "n must be 1 or larger"
 assert len(sys.argv[1]) <= 16, "n must be 16 or smaller"
 
-arr1 = json.loads(sys.argv[2])
-arr2 = json.loads(sys.argv[3])
+# convert system argument arrays to lists
+for i in range(2, len(sys.argv)):
+	if "]" in sys.argv[i]:
+		arr1 = sys.argv[2:i+1]
+		break
+
+arr2 = sys.argv[i+1:]
+
+arr1 = [x.strip("[").strip("]").strip(",").strip() for x in arr1]
+arr2 = [x.strip("[").strip("]").strip(",").strip() for x in arr2]
 
 def dec_to_bin(x):
 	# decimal to binary recursive function
-	if x == 1:
-		return [1]
+	if x <= 1:
+		return [x]
 	else:
 		return dec_to_bin(x//2) + [x % 2]
 

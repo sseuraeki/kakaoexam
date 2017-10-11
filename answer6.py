@@ -7,9 +7,16 @@ board = [list(x) for x in board]
 for row in range(m):
 	for col in range(n):
 		if board[m][n] == board[m+1][n] and board[m][n] == board[m][n+1] and board[m][n] == board[m+1][n+1]:
-			board[m][n] = "EMPTY"
-			board[m+1][n] = "EMPTY"
-			board[m][n+1] = "EMPTY"
-			board[m+1][n+1] = "EMPTY"
+			board[m][n] = "ERASED"
+			board[m+1][n] = "ERASED"
+			board[m][n+1] = "ERASED"
+			board[m+1][n+1] = "ERASED"
+
+erased = 0
+
+for row in range(m):
+	for col in range(n):
+		if board[m][n] == "ERASED":
+			erased += 1
 
 
