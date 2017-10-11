@@ -1,5 +1,8 @@
 import sys
 import datetime
+import time
+
+start_time = time.time()
 
 assert len(sys.argv) >= 4, "Usage: python answer4.py [n] [t] [m] [timetable]"
 
@@ -35,3 +38,6 @@ t = int(sys.argv[2])
 m = int(sys.argv[3])
 
 print(answer4(n, t, m, timetable))
+
+end_time = time.time()
+print(end_time - start_time, " seconds elapsed")

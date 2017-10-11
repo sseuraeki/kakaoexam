@@ -1,4 +1,7 @@
 import sys
+import time
+
+start_time = time.time()
 
 assert len(sys.argv) == 2, "there must be one and only one dartResult"
 
@@ -84,4 +87,5 @@ def answer2(dart):
 
 print(answer2(sys.argv[1]))
 
-
+end_time = time.time()
+print(end_time - start_time, " seconds elapsed")

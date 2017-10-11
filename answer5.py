@@ -1,4 +1,7 @@
 import sys
+import time
+
+start_time = time.time()
 
 assert len(sys.argv) >= 2, "Usage: python answer5.py [str1] [str2]"
 
@@ -34,3 +37,6 @@ def jacard(str1, str2):
 	return int(len(inner) / len(outer) * 65536)
 
 print(jacard(sys.argv[1], str2))
+
+end_time = time.time()
+print(end_time - start_time, " seconds elapsed")

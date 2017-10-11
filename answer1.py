@@ -1,4 +1,7 @@
 import sys
+import time
+
+start_time = time.time()
 
 assert len(sys.argv) >= 4, "Usage: python answer1.py [n] [arr1] [arr2]"
 assert len(sys.argv[1]) >=1, "n must be 1 or larger"
@@ -60,6 +63,8 @@ def answer1(n, arr1, arr2):
 
 print(answer1(int(sys.argv[1]), arr1, arr2))
 
+end_time = time.time()
+print(end_time - start_time, " seconds elapsed")
 
 
 

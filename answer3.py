@@ -1,4 +1,7 @@
 import sys
+import time
+
+start_time = time.time()
 
 assert len(sys.argv) >= 3, "Usage: python answer3.py [cacheSize] [array]"
 
@@ -28,3 +31,6 @@ def answer3(size, arr):
 	return duration
 
 print(answer3(size, cities))
+
+end_time = time.time()
+print(end_time - start_time, " seconds elapsed")
